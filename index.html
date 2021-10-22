@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+
+    <style>
+
+        body {
+
+            background-color: #000000;
+            font-family:monospace;
+        }
+
+        #local-clock {
+
+            text-align: center;
+            font-size: 10em;
+            color: #ffffff;
+            transform: translate(0%, 150%);
+        }
+
+        p {
+            
+            text-align: center;
+            font-size: 2em;
+            color: #ffffff;
+            transform: translate(0%, 1000%);
+        }
+
+        @media screen and (max-width: 992px) {
+            
+            #local-clock {
+                font-size: 5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+
+        /* On screens that are 600px or less, set the background color to olive */
+        @media screen and (max-width: 600px) {
+            #local-clock {
+                font-size: 5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="local-clock"></div>
+    <p>Local Time</p>
+
+    <script>
+        
+        setInterval(getTime, 500);
+        function getTime() {
+            
+            var time = new Date();
+            var hrs = time.getHours();    
+            var mins = time.getMinutes();
+            var secs = time.getSeconds();
+
+            document.getElementById("local-clock").innerHTML = hrs + ":" + mins + ":" + secs;
+        }
+        
+    </script>
+
+</body>
+</html>
